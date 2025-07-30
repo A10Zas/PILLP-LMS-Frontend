@@ -20,7 +20,7 @@ const Home = () => {
       icon: <User className="w-5 h-5" />,
       title: 'Employee Leave Application',
       description: 'Access your leave application dashboard',
-      color: 'from-gray-700 to-gray-500',
+      color: 'from-slate-800 to-slate-600',
       buttonText: 'Go to Portal',
       options: null,
       link: '/employee-login',

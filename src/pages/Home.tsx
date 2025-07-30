@@ -18,9 +18,9 @@ const Home = () => {
     {
       id: 1,
       icon: <User className="w-5 h-5" />,
-      title: 'Employee Portal',
+      title: 'Employee Leave Application',
       description: 'Access your leave application dashboard',
-      color: 'from-red-600 to-red-400',
+      color: 'from-gray-700 to-gray-500',
       buttonText: 'Go to Portal',
       options: null,
       link: '/employee-login',
@@ -30,7 +30,7 @@ const Home = () => {
       icon: <Users className="w-5 h-5" />,
       title: 'Admin Panel',
       description: 'Manage organization settings',
-      color: 'from-gray-700 to-gray-500',
+      color: 'from-red-600 to-red-400',
       buttonText: 'Show Options',
       options: [
         {
@@ -54,7 +54,7 @@ const Home = () => {
     {
       id: 3,
       icon: <Users className="w-5 h-5" />,
-      title: 'Admin Portal',
+      title: 'Admin Leave Application',
       description: 'Access Admin leave application dashboard',
       color: 'from-slate-800 to-slate-600',
       buttonText: 'Go to Portal',

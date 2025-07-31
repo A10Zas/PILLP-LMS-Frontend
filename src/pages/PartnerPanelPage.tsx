@@ -17,6 +17,7 @@ import {
   Mail,
 } from 'lucide-react';
 import { toast } from 'sonner';
+import { formatDate } from '../service';
 
 const API_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -129,11 +130,41 @@ const PartnerPanelPage = () => {
                     </span>
                   </div>
                   <div className="text-sm text-gray-500">
-                    {leave.Department} • {leave.Designation}
+                    Dept : {leave.Department} • Desg : {leave.Designation}
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="text-sm">{leave['Submission Date']}</div>
+                  {leave.Status === 'Pending' &&
+                    expandedCard !== leave['Leave ID'] && (
+                      <div className="flex flex-col sm:flex-row  justify-end gap-3 mt-4">
+                        <button
+                          onClick={() =>
+                            statusMutation.mutate({
+                              leaveId: leave['Leave ID'],
+                              status: 'Approved',
+                            })
+                          }
+                          className="btn bg-green-500 hover:bg-green-600 text-white text-xs sm:text-base"
+                          disabled={statusMutation.isPending}
+                        >
+                          <Check className="w-4 h-4 mr-1" />
+                          Approve
+                        </button>
+                        <button
+                          onClick={() =>
+                            statusMutation.mutate({
+                              leaveId: leave['Leave ID'],
+                              status: 'Rejected',
+                            })
+                          }
+                          className="btn bg-red-500 hover:bg-red-600 text-white text-xs sm:text-base"
+                          disabled={statusMutation.isPending}
+                        >
+                          <X className="w-4 h-4 mr-1" />
+                          Reject
+                        </button>
+                      </div>
+                    )}
                   {expandedCard === leave['Leave ID'] ? (
                     <ChevronUp className="w-5 h-5 text-gray-500" />
                   ) : (

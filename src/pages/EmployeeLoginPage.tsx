@@ -10,10 +10,6 @@ import { toast } from 'sonner';
 
 // Define form schema with Zod
 const loginSchema = z.object({
-  name: z
-    .string()
-    .min(1, 'Full name is required')
-    .min(3, 'Full name must be at least 3 characters'),
   whatsappNumber: z
     .string()
     .min(1, 'WhatsApp number is required')
@@ -105,27 +101,6 @@ const EmployeeLoginPage = () => {
         >
           <div className="p-6">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              {/* Full Name Field */}
-              <div className="form-control">
-                <div className="relative input w-full">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    id="name"
-                    type="text"
-                    placeholder="Enter your full name"
-                    className={`w-full pl-10 ${
-                      errors.name ? 'border-red-500' : ''
-                    }`}
-                    {...register('name')}
-                  />
-                </div>
-                {errors.name && (
-                  <p className="mt-1 text-sm text-red-600">
-                    {errors.name.message}
-                  </p>
-                )}
-              </div>
-
               {/* WhatsApp Number Field */}
               <div className="form-control">
                 <div className="relative input w-full">
